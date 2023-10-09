@@ -71,7 +71,7 @@ class TextToSpeech implements TextToSpeechInterface
             $status = $response->getStatusCode();
 
             if ($status === 200) {
-                return (new SuccessResponse($status, "Voice Succesfully Generated"))->getResponse();
+                return (new SuccessResponse($response, "Voice Succesfully Generated"))->getResponse();
             }
         } catch (Exception $e) {
             return $this->handleException($e);

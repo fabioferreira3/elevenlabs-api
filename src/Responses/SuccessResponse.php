@@ -7,20 +7,15 @@ namespace Talendor\ElevenLabsClient\Responses;
 class SuccessResponse
 {
 
-    protected $status;
+    protected $response;
 
     protected $message;
 
 
-    public function __construct(int $status, string $message)
+    public function __construct($response, string $message)
     {
-        $this->status  = $status;
+        $this->response  = $response;
         $this->message = $message;
-    }
-
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     public function getMessage()
@@ -32,7 +27,8 @@ class SuccessResponse
     public function getResponse(): array
     {
         return [
-            'status' => $this->status,
+            'status' => 200,
+            'response_body' => $this->response->getBody()->getContents(),
             'message' => $this->message,
         ];
     }
