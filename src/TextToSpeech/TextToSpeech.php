@@ -57,7 +57,6 @@ class TextToSpeech implements TextToSpeechInterface
 
                 $diff = array_diff_key($voice_settings, array_flip(VoiceSettingsEnum::ALLOWED_VOICESETTINGS));
 
-                //ensure the validity of voice_settings keys
                 if ($diff) {
                     return (new ErrorResponse(400, "You provided invalid voice settings"))->getResponse();
                 }
